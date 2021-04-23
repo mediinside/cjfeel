@@ -1,0 +1,130 @@
+<?php
+	include_once "../inc/head.php";
+?>
+<style>
+</style>
+
+<body data-dep1="3" data-dep2="1">
+	<div id="wrap">
+		<?php include_once "../inc/header.php" ?>
+		<div id="container">
+			<div id="sub-bnnr">
+				<img src="http://placehold.it/1920x315" alt="">
+				<h2>
+					<small>cheongju phil hospital of korean medicine</small>
+					<span>필 공감센터</span>
+				</h2>
+			</div>
+			<?php include_once "../inc/location.php" ?>
+			<div class="contents">
+				<h3 class="page-tit">진료예약</h3>
+				<div class="inner">
+					<h4 class="dott">예약정보 입력</h4>
+					<table class="board-write" style="width: 100%;">
+						<colgroup>
+							<col>
+							<col>
+						</colgroup>
+						<tbody>
+							<tr>
+								<th scope="row">
+									예약시간
+								</th>
+								<td>
+									<input type="text" class="i_text" name="rs_date" id="rs_date" value="2021-04-29" readonly="">
+									<select title="시간" name="rs_time" id="rs_time">
+										<option>선택</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+										<option value="14">14</option>
+										<option value="15">15</option>
+										<option value="16">16</option>
+										<option value="17">17</option>
+										<option value="18">18</option>
+										<option value="19">19</option>
+									</select>
+									<span class="empty">시</span>
+									<select title="시간" name="rs_minute" id="rs_minute">
+										<option>선택</option>
+										<option value="00">00</option>
+										<option value="20">20</option>
+										<option value="40">40</option>
+					
+									</select>
+									<span class="empty">분</span>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">
+									초진/재진
+								</th>
+								<td class="mobCenter">
+									<label><input type="radio" name="tor_rs_exam" value="N"><span>초진</span></label>
+									<label><input type="radio" name="tor_rs_exam" value="Y"><span>재진</span></label>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">성별</th>
+								<td>
+									<label><input type="radio" name="tor_rs_gender" value="M"><span>남</span></label>
+									<label><input type="radio" name="tor_rs_gender" value="F"><span>여</span></label>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">생년월일</th>
+								<td><input type="text" class="i_text datepicker" name="tor_rs_birth" id="tor_rs_birth"
+										placeholder="ex)170317"></td>
+							</tr>
+							<tr>
+								<th scope="row">이름</th>
+								<td>
+									<input type="text" class="i_text" title="이름 입력" placeholder="이름을 입력하세요." style="width:160px;"
+										id="tor_rs_name" name="tor_rs_name" value="지태광">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">핸드폰</th>
+								<td>
+									<select name="tor_rs_phone1" id="tor_rs_phone1">
+										<option value="">선택</option>
+										<option value="010">010</option>
+										<option value="011">011</option>
+										<option value="016">016</option>
+										<option value="017">017</option>
+										<option value="018">018</option>
+										<option value="019">019</option>
+									</select>
+									<span class="empty">-</span>
+									<input type="text" class="i_text" id="tor_rs_phone2" name="tor_rs_phone2" maxlength="4" value="">
+									<span class="empty">-</span>
+									<input type="text" class="i_text" id="tor_rs_phone3" name="tor_rs_phone3" maxlength="4" value="">
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">증상 및 상태</th>
+								<td>
+									<textarea name="tor_rs_content" id="tor_rs_content"></textarea>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">자동입력방지</th>
+								<td>
+									<img src="http://www.philhospital.com/bbs/zmSpamFree/zmSpamFree.php?zsfimg=1619136801" id="zsfImg"
+										alt="아래 새로고침을 클릭해 주세요.">
+									<input type="text" name="zsfCode" id="zsfCode" class="i_text" title="자동입력방지 숫자 입력">
+									<a title="새로고침" class="btn btn-gray btn-small" href="#"
+										onclick="document.getElementById('zsfImg').src='http://www.philhospital.com/bbs/zmSpamFree/zmSpamFree.php?re&amp;zsfimg=' + new Date().getTime(); return false;"><span>새로고침</span></a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<?php include_once "../inc/footer.php" ?>
+	</div>
+</body>
+
+</html>

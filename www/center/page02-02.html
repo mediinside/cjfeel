@@ -1,0 +1,213 @@
+<?php
+	include_once "../inc/head.php";
+?>
+<style>
+</style>
+
+<body data-dep1="3" data-dep2="1">
+	<div id="wrap">
+		<?php include_once "../inc/header.php" ?>
+		<div id="container">
+			<div id="sub-bnnr">
+				<img src="http://placehold.it/1920x315" alt="">
+				<h2>
+					<small>cheongju phil hospital of korean medicine</small>
+					<span>필 공감센터</span>
+				</h2>
+			</div>
+			<?php include_once "../inc/location.php" ?>
+			<div class="contents">
+				<h3 class="page-tit">진료예약</h3>
+				<div class="inner">
+					<h4 class="dott">온라인예약 절차 및 안내</h4>
+					<div class="text-box">
+						<ul class="middot-list">
+							<li>진료시간 10분 전까지 접수창구로 오셔서 담당 간호사에게 예약 상황을 확인하고 진료를 받으시면 됩니다.</li>
+							<li>환자 신상정보는 반드시 진료 받으실 환자분의 것을 사용하셔야 합니다.</li>
+							<li>당일 예약은 불가능하며 최소한 3일 전에 신청하셔야 합니다.</li>
+							<li>예약 변경이나 취소는 예약일 하루 전까지 병원에 통보해 주시기 바랍니다.</li>
+							<li>온라인에서는 1건의 예약만 가능합니다. 다른 진료과 추가 예약은 병원으로 연락주시기 바랍니다.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="contents no-top-pad">
+				<div class="inner">
+					<h4 class="dott">예약하기</h4>
+					<div class="scheduler">
+						<div id="cal" class="wrapSubreser">
+							<div class="inner">
+								<p>2021년 04월</p>
+								<a class="btnCalendar_l" onclick="ch_cal('2021-03-23')">이전달 보기</a>
+								<a class="btnCalendar_r" onclick="ch_cal('2021-05-23')">다음달 보기</a>
+							</div>
+						</div>
+						<table class="tbSubReser">
+							<colgroup>
+								<col style="width:14%">
+								<col style="width:14%">
+								<col style="width:14%">
+								<col style="width:14%">
+								<col style="width:14%">
+								<col style="width:14%">
+								<col style="width:14%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col" class="sun">일</th>
+									<th scope="col">월</th>
+									<th scope="col">화</th>
+									<th scope="col">수</th>
+									<th scope="col">목</th>
+									<th scope="col">금</th>
+									<th scope="col">토</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="boxSubCalendar">
+									<td>
+										<div><span></span></div>
+									</td>
+									<td>
+										<div><span></span></div>
+									</td>
+									<td>
+										<div><span></span></div>
+									</td>
+									<td>
+										<div><span></span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>1</span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>2</span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>3</span></div>
+									</td>
+								</tr>
+								<tr class="boxSubCalendar">
+									<td title="일정없음" class="boxSubnon">
+										<div><span>4</span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>5</span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>6</span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>7</span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>8</span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>9</span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>10</span></div>
+									</td>
+								</tr>
+								<tr class="boxSubCalendar">
+									<td title="일정없음" class="boxSubnon">
+										<div><span>11</span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>12</span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>13</span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>14</span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>15</span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>16</span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>17</span></div>
+									</td>
+								</tr>
+								<tr class="boxSubCalendar">
+									<td title="일정없음" class="boxSubnon">
+										<div><span>18</span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>19</span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>20</span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>21</span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>22</span></div>
+									</td>
+									<td class="boxSubToday" title="오늘">
+										<div><span>23</span></div>
+									</td>
+									<td title="일정없음" class="boxSubnon">
+										<div><span>24</span></div>
+									</td>
+								</tr>
+								<tr class="boxSubCalendar">
+									<td title="일정없음" class="boxSubnon">
+										<div><span>25</span></div>
+									</td>
+									<td class="boxSubPossible" title="예약가능">
+										<div><a href="#;" onclick="next_step('2021-04-26')"><span>26</span></a></div>
+									</td>
+									<td class="boxSubPossible" title="예약가능">
+										<div><a href="#;" onclick="next_step('2021-04-27')"><span>27</span></a></div>
+									</td>
+									<td class="boxSubPossible" title="예약가능">
+										<div><a href="#;" onclick="next_step('2021-04-28')"><span>28</span></a></div>
+									</td>
+									<td class="boxSubPossible" title="예약가능">
+										<div><a href="#;" onclick="next_step('2021-04-29')"><span>29</span></a></div>
+									</td>
+									<td class="boxSubPossible" title="예약가능">
+										<div><a href="#;" onclick="next_step('2021-04-30')"><span>30</span></a></div>
+									</td>
+									<td>
+										<div><span></span></div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					
+						<div class="util">
+							<span class="state today">오늘</span>
+							<span class="state possible">예약가능</span>
+							<span class="state impossible">예약불가</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="contents no-top-pad">
+				<div class="inner">
+					<h4 class="dott">예약확인</h4>
+					<div class="icon-panel text-box">
+						<dl class="info">
+							<dt class="none">일시</dt>
+							<dd class="date">2021년 04월 30일 15시00분</dd>
+							<dt class="none">의료진</dt>
+							<dd class="doctor">관절-A원장</dd>
+							<dt class="none">상태</dt>
+							<dd class="wait">예약대기</dd> <!-- <dt class="none">상태</dt><dd class="success">예약완료</dd> -->
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php include_once "../inc/footer.php" ?>
+	</div>
+</body>
+
+</html>

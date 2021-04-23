@@ -103,6 +103,9 @@
 body {
   min-width: 1330px; }
 
+.none {
+  display: none !important; }
+
 .mb-show {
   display: none !important; }
 
@@ -124,7 +127,7 @@ body {
   box-sizing: border-box; }
 
 .contents {
-  padding: 100px 0; }
+  padding: 120px 0; }
   .contents.no-top-pad {
     padding-top: 0; }
   .contents.b-border {
@@ -199,9 +202,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center; }
+  .flex-list-01.lt {
+    flex-flow: row-reverse; }
+    .flex-list-01.lt .right {
+      margin-left: 0; }
   .flex-list-01.margin-t {
     margin-top: 80px; }
   .flex-list-01 .right {
+    width: 50%;
     margin-left: 70px; }
     .flex-list-01 .right h4 {
       margin-bottom: 37px;
@@ -219,6 +227,44 @@ body {
     .flex-list-01 .right .col-list ul li {
       padding-left: 10%;
       text-align: left; }
+
+.flex-list-02 {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap; }
+  .flex-list-02.margin-t {
+    margin-top: 50px; }
+  .flex-list-02.n4 {
+    width: calc(100% + 20px);
+    margin-left: -10px; }
+    .flex-list-02.n4 > div {
+      width: calc(25% - 20px);
+      margin: 0 10px 40px; }
+      .flex-list-02.n4 > div > p {
+        margin-top: 15px;
+        font-size: 25px;
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: -1px;
+        text-align: center; }
+  .flex-list-02.n3 {
+    width: calc(100% + 20px);
+    margin-left: -10px; }
+    .flex-list-02.n3 > div {
+      width: calc(33.33% - 20px);
+      margin: 0 10px 30px; }
+      .flex-list-02.n3 > div > p {
+        margin-top: 10px;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: -1px; }
+      .flex-list-02.n3 > div > span {
+        display: block;
+        margin-top: 20px;
+        font-size: 20px;
+        line-height: 1.4;
+        letter-spacing: -1px; }
 
 .z-list.intro02-bg {
   max-width: 1160px;
@@ -1194,6 +1240,142 @@ footer {
   padding: 40px 50px;
   box-sizing: border-box;
   background-color: #f8f8f8; }
+
+/* 치료후기 */
+.experience-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100% + 20px);
+  margin-top: 60px;
+  margin-left: -10px;
+  font-size: 0;
+  line-height: 0; }
+
+.experience-list > li {
+  margin: 10px;
+  width: calc(25% - 20px); }
+
+.experience-list > li .picture {
+  position: relative;
+  display: block;
+  padding-top: 120%; }
+
+.experience-list > li .picture img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.experience-list:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+.experience-list img.block {
+  outline: 1px #ddd solid;
+  box-sizing: border-box; }
+
+.exp-tit {
+  padding: 15px 0;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: -1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #333; }
+
+.experience-list p {
+  padding: 12px 0;
+  border-bottom: 1px #ddd solid; }
+
+.experience-list p > span {
+  display: block;
+  display: -webkit-box;
+  height: 85px;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 28px;
+  color: #666;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; }
+
+.experience-list {
+  margin-top: 50px; }
+
+.exp-info {
+  border-top: 2px #19b1c3 solid; }
+
+.exp-info dd {
+  display: inline-block;
+  padding: 9px 9px 9px 0;
+  font-size: 16px;
+  line-height: 32px;
+  color: #333; }
+
+.exp-info dd:after {
+  content: '/';
+  margin-left: 5px; }
+
+.exp-info dd:last-child:after {
+  display: none; }
+
+.exp-num {
+  border-top: 1px #ddd solid;
+  padding: 9px 0;
+  font-size: 14px;
+  line-height: 32px;
+  color: #999; }
+
+.exp-num:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+.exp-num span.num {
+  float: left; }
+
+.exp-num span.date {
+  float: right; }
+
+/* 감사편지 */
+.letter-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100% + 20px);
+  margin-top: 20px;
+  margin-left: -10px; }
+
+.letter-list > li {
+  margin: 10px;
+  width: calc(25% - 20px); }
+
+.letter-list > li a {
+  display: block;
+  padding: 20px 30px;
+  border: 1px solid #e1e1e1; }
+
+.letter-list .tit {
+  margin-top: 18px;
+  font-size: 18px;
+  line-height: 22px;
+  color: #333;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.letter-list .cont {
+  margin: 25px 0;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333;
+  height: 72px;
+  overflow: hidden;
+  word-break: break-all; }
 
 /* 로그인 */
 #member-box {

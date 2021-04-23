@@ -50,10 +50,10 @@
 					<li>
 						<a href="#none">필 공감센터</a>
 						<ul class="sub-menu">
-							<li><a href="#none">진료상담</a></li>
-							<li><a href="#none">진료예약</a></li>
-							<li><a href="#none">치료후기</a></li>
-							<li><a href="#none">필 스토리</a></li>
+							<li><a href="/center/page01.html">진료상담</a></li>
+							<li><a href="/center/page02-01.html">진료예약</a></li>
+							<li><a href="/center/page03.html">치료후기</a></li>
+							<li><a href="/center/page04.html">필 스토리</a></li>
 						</ul>
 					</li>
 				</ul>
