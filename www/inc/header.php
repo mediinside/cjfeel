@@ -60,7 +60,7 @@
 			</nav>
 			<div id="header_info">
 				<div class="login-box">
-					<a href="#none">간편로그인</a>
+					<a href="/member/login.html">간편로그인</a>
 				</div>
 				<ul class="sns">
 					<!-- <li class="">
