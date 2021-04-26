@@ -23,7 +23,7 @@
 					<li>
 						<a href="#none">필 치료안내</a>
 						<ul class="sub-menu">
-							<li><a href="#none">3필치료법</a></li>
+							<li><a href="/info-1/page01.html">3필치료법</a></li>
 							<li><a href="#none">허리치료</a></li>
 							<li><a href="#none">목치료</a></li>
 							<li><a href="#none">턱관절치료</a></li>

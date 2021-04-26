@@ -310,15 +310,15 @@ body {
 		}
 	}
 	&.n3 {
-		width: calc(100% + 20px);
-		margin-left: -10px;
+		width: calc(100% + 50px);
+		margin-left: -25px;
 		>div {
-			width: calc(33.33% - 20px);
-			margin:0 10px 30px;
+			width: calc(33.33% - 50px);
+			margin:0 25px 50px;
 			> p {
-				margin-top: 10px;
-				font-size: 20px;
-				font-weight: 500;
+				margin-top: 30px;
+				font-size: 30px;
+				font-weight: 600;
 				line-height: 1.2;
 				letter-spacing: -1px;
 			}
@@ -328,6 +328,7 @@ body {
 				font-size: 20px;
 				line-height: 1.4;
 				letter-spacing: -1px;
+				word-break: keep-all;
 			}
 		}
 	}
@@ -346,6 +347,39 @@ body {
 			}
 			.text {
 				width: 55%;
+			}
+		}
+	}
+	&.feel {
+		li {
+			margin: 0;
+			.text {
+				padding:50px 64px;
+				background-repeat: no-repeat;
+				background-position: 151px 0;
+			}
+			&:nth-of-type(odd) {
+				flex-flow: row;
+			}
+			&:nth-of-type(even) {
+				flex-flow: row-reverse;
+			}
+			&:nth-of-type(1) {
+				.text {
+					background-image: url(/resource/images/feel3-01.png);
+				}
+			}
+			&:nth-of-type(2) {
+				.text {
+					padding-left: 0;
+					background-image: url(/resource/images/feel3-02.png);
+					background-position: 73px 0;
+				}
+			}
+			&:nth-of-type(3) {
+				.text {
+					background-image: url(/resource/images/feel3-03.png);
+				}
 			}
 		}
 	}
@@ -394,29 +428,6 @@ body {
 				word-break: keep-all;
 			}
 		}//end .text
-
-		&.bg-blue {
-			background-color: #2f65bd;
-			.text {
-				>p {
-					color: #fff;
-				}
-				>span {
-					color: #fff;
-				}
-			}//end .text
-		}
-		&.bg-green {
-			background-color: #2caeb6;
-			.text {
-				>p {
-					color: #fff;
-				}
-				>span {
-					color: #fff;
-				}
-			}//end .text
-		}
 	}//end li
 }//end .z-list
 
@@ -1297,6 +1308,75 @@ footer {
 	}
 }
 
+[id*="sub-menu"] {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	padding: 58px 0;
+	&.on {display: flex;}
+	li {
+		position: relative;
+		padding:0 15px;
+		&:after {
+			position: absolute;
+			top: 50%;
+			left: 100%;
+			width: 2px;
+			height: 15px;
+			margin-top: -7px;
+			background-color: #b8b8b8;
+			content: '';
+		}
+		&:last-of-type:after {
+			display: none;
+		}
+
+		a {
+			color:#b8b8b8;
+			font-size: 22px;
+			font-weight: 500;
+			letter-spacing: -1.65px;
+		}
+
+		&.on a {
+			color:#333;
+		}
+	}
+}
+
+.page-bnnr {
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	.center {
+		flex-shrink: 0;
+		width: 650px;
+		padding: 0 79px;
+		box-sizing: border-box;
+		small {
+			font-family: 'Montserrat';
+			font-size: 18px;
+			font-weight: 800;
+			line-height: 1;
+			color: #b1b1b1;
+			text-transform: uppercase;
+		}
+		h4 {
+			margin-top: 15px;
+			font-size: 50px;
+			line-height: 1.2;
+			letter-spacing: -3.75px;
+		}
+		p {
+			margin-top: 30px;
+			font-size: 20px;
+			font-weight: 300;
+			line-height: 1.6;
+			letter-spacing: -2px;
+		}
+	}
+}
+
 .intro01-box {
 	margin-top: 40px;
 	padding-left: 140px;
@@ -1589,6 +1669,50 @@ footer {
 .letter-list > li a {display:block;padding:20px 30px;border:1px solid #e1e1e1;}
 .letter-list .tit {margin-top:18px;font-size:18px;line-height:22px;color:#333;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .letter-list .cont {margin:25px 0;font-size:16px;line-height:24px;color:#333;height:72px;overflow:hidden;word-break:break-all;}
+
+
+
+/* 3필 치료법 */
+.feel3-care {
+	.box {
+		display: flex;
+		padding: 65px 44px;
+		box-sizing: border-box;
+		&.box1 {
+			background-color: #f7f0e8;
+		}
+		&.box3 {
+			background-color: #e7f3f1;
+		}
+		.left {
+			display: flex;
+			align-items: flex-start;
+			justify-content: flex-start;
+			h5 {
+				margin-left: 30px;
+				font-size: 50px;
+				line-height: 0.7;
+				letter-spacing: -3.75px;
+				text-align: center;
+				small {
+					display: block;
+					font-size: 20px;
+					font-weight: 500;
+					line-height: 3.6;
+					letter-spacing: -1.5px;
+				}
+			}
+		}
+		.right {
+			width: 688px;
+			margin-left: 150px;
+			font-size: 20px;
+			line-height: 1.5;
+			word-break: keep-all;
+		}
+	}
+}
+
 
 
 

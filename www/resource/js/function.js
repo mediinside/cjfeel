@@ -66,6 +66,7 @@ $(function(){
 	if ($('#location').length > 0) {
 		var dep1Idx = $('body').data('dep1');
 		var dep2Idx = $('body').data('dep2');
+		var dep3Idx = $('body').data('dep3');
 		var dep1btn = $("#gnb > ul > li").eq(dep1Idx).find('> a').text();
 		var dep2btn = $("#gnb > ul > li").eq(dep1Idx).find('.sub-menu li').eq(dep2Idx).find('> a').text();
 		var dep1menu = $("#gnb > ul > li").clone();
@@ -75,6 +76,8 @@ $(function(){
 		$('#location .locDepth2 button').text(dep2btn);
 		$('#location .locDepth2 ul').append(dep2menu);
 		$('#location .locDepth1 ul .sub-menu').remove();
+
+		$('#sub-menu' + dep2Idx).addClass('on').find('li').eq(dep3Idx).addClass('on');
 	}
 	
 	
