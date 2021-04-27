@@ -1,5 +1,13 @@
 <?php
-	include_once "../inc/head.php";
+	include_once $_SERVER["DOCUMENT_ROOT"] . "/_init.php";
+	include_once $GP -> INC_WWW . "/count_inc.php";
+	include_once $GP -> INC_WWW . "/head.php";
+
+    $index_page = "page04.html";
+	$query_page = "query.php";
+
+	if(!$jb_code)
+		$jb_code="70";
 ?>
 <style>
 </style>
@@ -19,7 +27,8 @@
 			<div class="contents">
 				<h3 class="page-tit">필 스토리</h3>
 				<div class="inner">
-					<div class="search">
+				<?php include $GP -> INC_PATH ."/board_inc.php"; ?>
+					<!--	<div class="search">
 						<form id="search_form" name="search_form" method="get" action="?">
 							<input type="hidden" name="jb_code" id="jb_code" value="10">
 							<input type="hidden" name="search_key" id="search_key" value="jb_all">
@@ -144,7 +153,7 @@
 							href="?page=1&amp;jb_code=20&amp;dep1=&amp;&amp;dep2=&amp;jb_type=&amp;search_key=&amp;search_keyword= "
 							title="마지막 페이지 이동하기" class="btn next"><img src="/resource/images/page-all-right.png"
 								width="100%" alt=""></a>
-					</div>
+					</div>-->
 				</div>
 			</div>
 		</div>

@@ -1,5 +1,16 @@
 <?php
-	include_once "../inc/head.php";
+	include_once $_SERVER["DOCUMENT_ROOT"] . "/_init.php";
+	include_once $GP -> INC_WWW . "/count_inc.php";
+	$page_title = "필한방병원";
+	include_once $GP -> INC_WWW . "/head.php";
+	$locArr = array(4,1);
+
+    $index_page = "page01.html";
+	$query_page = "query.php";
+    $mpYN = "N";
+
+	if(!$jb_code)
+		$jb_code="40";
 ?>
 <style>
 </style>
@@ -19,7 +30,7 @@
 			<div class="contents">
 				<h3 class="page-tit">진료상담</h3>
 				<div class="inner">
-					<!-- 게시판 영역 -->
+					<?php include $GP -> INC_PATH ."/board_inc.php"; ?>
 				</div>
 			</div>
 		</div>
