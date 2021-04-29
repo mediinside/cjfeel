@@ -1,5 +1,59 @@
 <?php
-	include_once "../inc/head.php";
+	include_once $_SERVER["DOCUMENT_ROOT"] . "/_init.php";	
+	include_once $GP -> INC_WWW . "/head.php";
+    include_once $GP -> INC_WWW . '/inc.login_check.php';
+	$locArr = array(4,2);
+
+	include_once($GP -> CLS."/class.online.php");
+	$C_Online 	= new Online;
+
+	if($_SESSION['susercode']) {
+		$mb_code = $_SESSION['susercode'];
+	}
+
+	if($_GET['date']!= '') {
+		$date = $_GET['date'];
+	}else{
+		$date = date('Y-m-d');
+	}
+
+
+	$today_y = date('Y');
+	$today_m = date('m');
+	$today_d = date('d');
+	$today_a = date('Y-m-d');
+	$today_w = $C_Func->DayWeekChange($today_a);
+
+
+
+    include_once($GP->CLS."class.list.php");	;
+	$C_ListClass 	= new ListClass;
+
+
+	if($_SESSION['susercode']) {
+		$mb_code = $_SESSION['susercode'];
+	}
+
+	$args = array();
+	$args['show_row'] = 1;
+	$args['tor_mb_code'] = $mb_code;
+
+	$data = "";
+	$data = $C_Online->Online_Reserve_List_Front(array_merge($_GET,$_POST,$args));
+
+	$data_list 		= $data['data'];
+	$page_link 		= $data['page_info']['link'];
+	$page_search 	= $data['page_info']['search'];
+	$totalcount 	= $data['page_info']['total'];
+
+	$totalpages 	= $data['page_info']['totalpages'];
+	$nowPage 		= $data['page_info']['page'];
+	$totalcount_l 	= number_format($totalcount,0);
+
+	$data_list_cnt 	= count($data_list);
+
+
+
 ?>
 <style>
 </style>
@@ -37,156 +91,121 @@
 					<div class="scheduler">
 						<div id="cal" class="wrapSubreser">
 							<div class="inner">
-								<p>2021년 04월</p>
-								<a class="btnCalendar_l" onclick="ch_cal('2021-03-23')">이전달 보기</a>
-								<a class="btnCalendar_r" onclick="ch_cal('2021-05-23')">다음달 보기</a>
+							<?
+                                  $x=explode("-",$date); // 들어온 날짜를 년,월,일로 분할해 변수로 저장합니다.
+                                  $s_Y=$x[0]; // 지정된 년도
+                                  $s_m=$x[1]; // 지정된 월
+                                  $s_d=$x[2]; // 지정된 요일
+
+                                  $s_t=date("t",mktime(0,0,0,$s_m,$s_d,$s_Y)); // 지정된 달은 몇일까지 있을까요?
+                                  $s_n=date("N",mktime(0,0,0,$s_m,1,$s_Y)); // 지정된 달의 첫날은 무슨요일일까요?
+                                  $l=$s_n%7; // 지정된 달 1일 앞의 공백 숫자.
+                                  $ra=($s_t+$l)/7; $ra=ceil($ra); $ra=$ra-1; // 지정된 달은 총 몇주로 라인을 그어야 하나?
+
+                                  $n_d= date("Y-m-d",mktime(0,0,0,$s_m,$s_d+1,$s_Y)); // 다음날
+                                  $p_d= date("Y-m-d",mktime(0,0,0,$s_m,$s_d-1,$s_Y)); // 이전날
+                                  $n_Y= date("Y-m-d",mktime(0,0,0,$s_m,$s_d,$s_Y+1)); // 내년
+                                  $p_Y= date("Y-m-d",mktime(0,0,0,$s_m,$s_d,$s_Y-1)); // 작년
+                                  $p_m= date("Y-m-d",mktime(0,0,0,$s_m-1,$s_d,$s_Y)); // 저번달
+                                  $n_m= date("Y-m-d",mktime(0,0,0,$s_m+1,$s_d,$s_Y)); // 다음달
+
+                            // 변수 $s 에 새로운 값을 넣고 새문서를 만들면, $s 가 들어와 원하는 값을 표시해 줍니다.
+                                  echo ("
+
+
+									<p>" . $s_Y ."년 ".$s_m."월</p>
+									<a class='btnCalendar_l' onclick=\"ch_cal('" . $p_m . "')\">이전달 보기</a>
+									<a class='btnCalendar_r' onclick=\"ch_cal('" . $n_m . "')\">다음달 보기</a>
+								</div>
 							</div>
-						</div>
-						<table class="tbSubReser">
-							<colgroup>
-								<col style="width:14%">
-								<col style="width:14%">
-								<col style="width:14%">
-								<col style="width:14%">
-								<col style="width:14%">
-								<col style="width:14%">
-								<col style="width:14%">
-							</colgroup>
-							<thead>
-								<tr>
-									<th scope="col" class="sun">일</th>
-									<th scope="col">월</th>
-									<th scope="col">화</th>
-									<th scope="col">수</th>
-									<th scope="col">목</th>
-									<th scope="col">금</th>
-									<th scope="col">토</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr class="boxSubCalendar">
-									<td>
-										<div><span></span></div>
-									</td>
-									<td>
-										<div><span></span></div>
-									</td>
-									<td>
-										<div><span></span></div>
-									</td>
-									<td>
-										<div><span></span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>1</span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>2</span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>3</span></div>
-									</td>
-								</tr>
-								<tr class="boxSubCalendar">
-									<td title="일정없음" class="boxSubnon">
-										<div><span>4</span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>5</span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>6</span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>7</span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>8</span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>9</span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>10</span></div>
-									</td>
-								</tr>
-								<tr class="boxSubCalendar">
-									<td title="일정없음" class="boxSubnon">
-										<div><span>11</span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>12</span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>13</span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>14</span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>15</span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>16</span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>17</span></div>
-									</td>
-								</tr>
-								<tr class="boxSubCalendar">
-									<td title="일정없음" class="boxSubnon">
-										<div><span>18</span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>19</span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>20</span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>21</span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>22</span></div>
-									</td>
-									<td class="boxSubToday" title="오늘">
-										<div><span>23</span></div>
-									</td>
-									<td title="일정없음" class="boxSubnon">
-										<div><span>24</span></div>
-									</td>
-								</tr>
-								<tr class="boxSubCalendar">
-									<td title="일정없음" class="boxSubnon">
-										<div><span>25</span></div>
-									</td>
-									<td class="boxSubPossible" title="예약가능">
-										<div><a href="#;" onclick="next_step('2021-04-26')"><span>26</span></a></div>
-									</td>
-									<td class="boxSubPossible" title="예약가능">
-										<div><a href="#;" onclick="next_step('2021-04-27')"><span>27</span></a></div>
-									</td>
-									<td class="boxSubPossible" title="예약가능">
-										<div><a href="#;" onclick="next_step('2021-04-28')"><span>28</span></a></div>
-									</td>
-									<td class="boxSubPossible" title="예약가능">
-										<div><a href="#;" onclick="next_step('2021-04-29')"><span>29</span></a></div>
-									</td>
-									<td class="boxSubPossible" title="예약가능">
-										<div><a href="#;" onclick="next_step('2021-04-30')"><span>30</span></a></div>
-									</td>
-									<td>
-										<div><span></span></div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					
-						<div class="util">
-							<span class="state today">오늘</span>
-							<span class="state possible">예약가능</span>
-							<span class="state impossible">예약불가</span>
-						</div>
+							<table class='tbSubReser'>
+								<caption>진료일정 선택 달력</caption>
+								<colgroup>
+									<col style='width:14%'>
+									<col style='width:14%'>
+									<col style='width:14%'>
+									<col style='width:14%'>
+									<col style='width:14%'>
+									<col style='width:14%'>
+									<col style='width:14%'>
+								</colgroup>
+								<thead>
+									<tr>
+										<th scope='col' class='sun'>일</th>
+										<th scope='col'>월</th>
+										<th scope='col'>화</th>
+										<th scope='col'>수</th>
+										<th scope='col'>목</th>
+										<th scope='col'>금</th>
+										<th scope='col'>토</th>
+									</tr>
+								</thead>
+								<tbody>
+                                ");
+                                 for($r=0;$r<=$ra;$r++){
+
+							echo "<tr class='boxSubCalendar'>\n";
+						for($z=1;$z<=7;$z++){
+
+							$rv=7*$r+$z; $ru=$rv-$l; // 칸에 번호를 매겨줍니다. 1일이 되기전 공백들 부터 마이너스 값으로 채운 뒤 ~
+
+							if($ru<=0 || $ru>$s_t) { // 딱 그달에 맞는 숫자가 아님 표시하지 말자
+							  echo "<td><div><span></span></div></td>";
+							}else{
+							  $s = date("Y-m-d",mktime(0,0,0,$s_m,$ru,$s_Y)); // 현재칸의 날짜
+
+							  $dayweek = $C_Func->DayWeekChange($s);
+
+							  $now_mon = date("m");
+
+							  $ch_mday = $s_m.$s_d;
+
+							  $ru_d = "";
+							  if(strlen($ru) < 2) {
+								$ru_d = "0".$ru;
+							  }else{
+								$ru_d = $ru;
+							  }
+							  $ch_mday1 = $now_mon.$ru_d;
+
+							  //3일후
+							  $next_three_day = $C_Func->request_add_day(date('Y-m-d'), 3);
+
+							  if($ch_mday == $ch_mday1) {
+								echo "<td class='boxSubToday' title='오늘'><div><span>$ru</span></div></td>";
+							  }else{
+							/*	if($dayweek == "일") {
+								  echo "<td title='일정없음' class='boxSubnon'><div><span>$ru</span></div></td>";
+								}else */ if($s < $next_three_day) { //3일후 날보다 작으면 예약불가
+								  echo "<td title='일정없음' class='boxSubnon'><div><span>$ru</span></div></td>";
+								}else{
+									if($_SESSION['susercode']) {
+										echo "<td class='boxSubPossible' title='예약가능'>";
+											echo "<div><a href='#;' onclick=\"next_step('" . $s ."')\"><span>$ru</span></a></div>";
+										echo "</td>";
+									}else{
+										echo "<td class='boxSubPossible' title='예약가능'>";
+										echo "<div><a href='#;' onclick=\"next_step('" . $s ."')\"><span>$ru</span></a></div>";
+											//echo "<div><a href='#;' onclick=\"login_go()\"><span>$ru</span></a></div>";
+										echo "</td>";
+									}
+								}
+							  }
+
+							} //end if
+						}
+					echo "</tr>\n";
+						  }
+				  echo "</tbody></table>\n
+							<div class='util'>
+								<span class='state today'>오늘</span>
+								<span class='state possible'>예약가능</span>
+								<span class='state impossible'>예약불가</span>
+                                ";
+
+
+					echo "</div>";
+					?>
 					</div>
 				</div>
 			</div>
@@ -194,19 +213,96 @@
 				<div class="inner">
 					<h4 class="dott">예약확인</h4>
 					<div class="icon-panel text-box">
-						<dl class="info">
-							<dt class="none">일시</dt>
-							<dd class="date">2021년 04월 30일 15시00분</dd>
-							<dt class="none">의료진</dt>
-							<dd class="doctor">관절-A원장</dd>
-							<dt class="none">상태</dt>
-							<dd class="wait">예약대기</dd> <!-- <dt class="none">상태</dt><dd class="success">예약완료</dd> -->
+					<?
+                          $dummy = 1;
+                        if($data_list_cnt > 0) {
+                          for ($i = 0 ; $i < $data_list_cnt ; $i++) {
+                           $tor_idx 		= $data_list[$i]['tor_idx'];
+                            $tor_rs_exam 	= $data_list[$i]['tor_rs_exam'];
+                            $tor_rs_date 	=date("Y년 m월 d일", strtotime($data_list[$i]['tor_rs_date']));
+                            $tor_rs_time 	= $data_list[$i]['tor_rs_time'];
+                            $tor_rs_content	= strip_tags($data_list[$i]['tor_rs_content']);
+                            $tor_rs_content = $C_Func->strcut_utf8($tor_rs_content, 50, false, "...");
+                            $tor_rs_phone	= $data_list[$i]['tor_rs_phone'];
+                            $tor_rs_name	= $data_list[$i]['tor_rs_name'];
+                            $tor_rs_type	= $data_list[$i]['tor_rs_type'];
+                              $tor_del_flag	= $data_list[$i]['tor_del_flag'];
+                            $tor_mb_code	= $data_list[$i]['tor_mb_code'];
+                            $tor_regdate 	= date("Y년 m월 d일 H시 i분", strtotime($data_list[$i]['tor_regdate']));
+
+                          $bef_one_day = $C_Func->request_minus_day($tor_rs_date,1);
+
+                            $edit_btn ="";
+
+                            if($tor_rs_type == "Y") {
+                                $edit_btn = "<dd class='success'>예약완료</dd>";
+                            } else {
+                                if($now_date == $bef_one_day) {
+                                    if(date('Hi') < 1800) {
+                                        $edit_btn = "<dd class='wait'>예약대기</dd>";
+                                    }else{
+                                        $edit_btn = "<dd class='success'>예약완료</dd>";
+                                    }
+                                }else if($now_date < $bef_one_day) {
+                                    $edit_btn = "<dd class='wait'>예약대기</dd>";
+                                }else{
+                                    $edit_btn = "<dd class='success'>예약완료</dd>";
+                                }
+                            }
+
+                        /*    if($tor_rs_type =="M"){
+                            	$edit_btn = "<dd class='wait'>예약대기</dd>";
+                            }else if($tor_rs_type =="Y"){
+                            	$edit_btn ="<dd class='success'>예약완료</dd>";
+                            }
+                          */
+
+                    ?>
+
+
+                        <dl class="info">
+							<dt class="none">일시</dt><dd class="date"><?=$tor_rs_date?> <?=$tor_rs_time?></dd>
+							<dt class="none">의료진</dt><dd class="doctor">관절-A원장</dd>
+							<dt class="none">상태</dt><?=$edit_btn?>
+							<!-- <dt class="none">상태</dt><dd class="success">예약완료</dd> -->
+
 						</dl>
+                  <?
+								$dummy++;
+								}
+							}else{
+								echo " <dl class='info'><dt class='none'></dt><dd class='date'>현재 예약된 내역이 없습니다.</dd></dl>";
+							}
+						?>
 					</div>
 				</div>
 			</div>
 		</div>
 		<?php include_once "../inc/footer.php" ?>
+		<form id="frm_online" name="frm_online" method="post" action="?">
+		<input type="hidden" name="mb_code" id="mb_code" value="<?=$mb_code?>" />
+		<input type="hidden" name="sel_date" id="sel_date" value="" />
+		</form>
+		<script type="text/javascript">
+
+			function next_step(date) {
+
+				$('#sel_date').val(date);
+				$('#frm_online').attr('action','page02-03.html');
+				$('#frm_online').submit();
+				return false;
+			}
+
+			function login_go() {
+				alert('로그인 후 예약가능합니다');
+				location.href = "/member/login.html?reurl=<?=urlencode($GP -> NOWPAGE)?>";
+			}
+
+			function ch_cal(date) {
+				location.href="?date=" + date;
+				return false;
+			}
+		</script>
 	</div>
 </body>
 
