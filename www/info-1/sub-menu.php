@@ -12,3 +12,17 @@
 				<li><a href="page04-01.html">턱관절 장애</a></li>
 				<li><a href="page04-02.html">안면비대칭</a></li>       
 			</ul>
+			<ul id="sub-menu4">
+				<li><a href="page05-01.html">손목/발목 염좌</a></li>
+				<li><a href="page05-02.html">무릎 퇴행성관절염</a></li>
+				<li><a href="page05-03.html">오십견</a></li>
+				<li><a href="page05-04.html">스포츠상해</a></li>       
+			</ul>
+			<ul id="sub-menu5">
+				<li><a href="page06-01.html">수술 후 후유증</a></li>
+				<li><a href="page06-02.html">수술 후 재활</a></li>       
+			</ul>
+			<ul id="sub-menu7">
+				<li><a href="page08-01.html">척추측만증</a></li>
+				<li><a href="page08-02.html">성장장애</a></li>       
+			</ul>

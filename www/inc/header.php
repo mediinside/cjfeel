@@ -24,18 +24,18 @@
 						<a href="#none">필 치료안내</a>
 						<ul class="sub-menu">
 							<li><a href="/info-1/page01.html">3필치료법</a></li>
-							<li><a href="#none">허리치료</a></li>
-							<li><a href="#none">목치료</a></li>
-							<li><a href="#none">턱관절치료</a></li>
-							<li><a href="#none">기타 관절질환</a></li>
-							<li><a href="#none">수술 후 통증 증후군</a></li>
-							<li><a href="#none">교통사고치료</a></li>
-							<li><a href="#none">소아청소년치료</a></li>
-							<li><a href="#none">도수치료</a></li>
-							<li><a href="#none">중풍 후유증<br>(뇌혈관질환)</a></li>
-							<li><a href="#none">안면마비</a></li>
-							<li><a href="#none">비만치료</a></li>
-							<li><a href="#none">한약치료</a></li>
+							<li><a href="/info-1/page02-01.html">허리치료</a></li>
+							<li><a href="/info-1/page03-01.html">목치료</a></li>
+							<li><a href="/info-1/page04-01.html">턱관절치료</a></li>
+							<li><a href="/info-1/page05-01.html">기타 관절질환</a></li>
+							<li><a href="/info-1/page06-01.html">수술 후 통증 증후군</a></li>
+							<li><a href="/info-1/page07.html">교통사고치료</a></li>
+							<li><a href="/info-1/page08-01.html">소아청소년치료</a></li>
+							<li><a href="/info-1/page09.html">도수치료</a></li>
+							<li><a href="/info-1/page10.html">중풍 후유증<br>(뇌혈관질환)</a></li>
+							<li><a href="/info-1/page11.html">안면마비</a></li>
+							<li><a href="/info-1/page12.html">비만치료</a></li>
+							<li><a href="/info-1/page13-01.html">한약치료</a></li>
 						</ul>
 					</li>
 					<li>
