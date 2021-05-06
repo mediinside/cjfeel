@@ -87,7 +87,7 @@
 			</div>
 			<a href="#none" class="menu-button">
 				<div class="bar"></div>
-				<div class="bar"></div>
+				<div class="bar short"></div>
 				<div class="bar"></div>
 			</a>
 		</header>

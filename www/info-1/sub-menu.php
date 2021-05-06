@@ -26,3 +26,7 @@
 				<li><a href="page08-01.html">척추측만증</a></li>
 				<li><a href="page08-02.html">성장장애</a></li>       
 			</ul>
+			<ul id="sub-menu12">
+				<li><a href="page13-01.html">척필탕</a></li>
+				<li><a href="page13-02.html">필공단</a></li>       
+			</ul>

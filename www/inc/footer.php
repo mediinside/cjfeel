@@ -25,6 +25,8 @@
 					</p>
 				</div>
 				<div class="box right">
+					<h3 class="mb-show">고객센터</h3>
+					<p class="mb-show">043.715.<span>2200</span></p>
 					<div class="tit-n2">
 						<div>
 							<h3>TEL</h3>
@@ -63,7 +65,7 @@
 							</tfoot>
 						</table>
 					</div>
-					<a href="#">진료상담</a>
+					<a href="#">찾아오시는 길</a>
 					<a href="#">진료안내</a>
 				</div>
 			</div>
@@ -84,14 +86,15 @@
 			</div>
 			<div class="bottom">
 				<h1>
-					<img src="/resource/images/logo.png" alt="">
+					<img class="mb-hide" src="/resource/images/logo.png" alt="">
+					<img class="mb-show" src="/resource/images/logo-m.png" alt="">
 				</h1>
 				  
 				<span>충북 청주시 흥덕구 강서로 107, BYC빌딩 4~5층</span><br class="mb-show">
 				<span>(구)충북 청주시 흥덕구 강서동 483</span><br class="mb-show">
 				<span>TEL 043-715-2200</span><br class="mb-hide">
 				<span>FAX 043-715-1472</span>
-				<p>COPYRIGHTⓒ 2021 Cheongju Phil Hospital Copyright All Rights Reseved</p>
+				<p>COPYRIGHTⓒ 2021 Cheongju Phil Hospital <br class="mb-show">Copyright All Rights Reseved</p>
 				<ul class="foot-sns">
 					<li>
 						<a href="https://blog.naver.com/topretina" class="blog" target="_blank">

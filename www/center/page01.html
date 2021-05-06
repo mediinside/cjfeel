@@ -13,6 +13,20 @@
 		$jb_code="40";
 ?>
 <style>
+	@media screen and (max-width:720px){
+		.s-inner {padding:0;}
+		.list colgroup {display:none;}
+		.list thead {display:none;}
+		.list tr {display:flex;flex-wrap:wrap;}
+		.list td:first-of-type {display:none;}
+		.list td:nth-of-type(2) {display:block;flex-shrink: 0;width:100%;padding-bottom:10px !important;text-align:left !important;box-sizing:border-box;}
+		.list td:nth-of-type(2) a {overflow: hidden;display:block;font-size:26px !important;font-weight:500;text-overflow: ellipsis;}
+		.list td:nth-of-type(3) {max-width:50%;margin-right:auto;padding-top:5px;text-align:left !important;box-sizing:border-box;}
+		.list td:nth-of-type(3):before {content:'작성자: ';}
+		.list td:last-of-type {max-width:50%;padding-top:5px;text-align:left !important;box-sizing:border-box;}
+		/* td:last-of-type:before {content:'날짜: ';} */
+		.viewType th { font-size:26px !important;font-weight:500 !important; }
+	}
 </style>
 
 <body data-dep1="3" data-dep2="0">
