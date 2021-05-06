@@ -1,0 +1,110 @@
+<?php
+	include_once "../inc/head.php"
+?>
+<style>
+	#info {display: none;}
+</style>
+<body data-dep1="0" data-dep2="8">
+	<div id="wrap">
+		<?php include_once "../inc/header.php" ?>
+		<div id="container">
+			<div id="sub-bnnr">
+				<img src="http://placehold.it/1920x315" alt="">
+				<h2>
+					<small>cheongju phil hospital of korean medicine</small>
+					<span>병원소개</span>
+				</h2>
+			</div>
+			<?php include_once "../inc/location.php" ?>
+			<div class="contents">
+				<h3 class="page-tit">오시는길</h3>
+				<div class="inner">
+                    <div id="map">
+                        <!-- * 카카오맵 - 지도퍼가기 -->
+                        <!-- 1. 지도 노드 -->
+                        <div id="daumRoughmapContainer1620277092523" class="root_daum_roughmap root_daum_roughmap_landing" style="width: 100%;"></div>
+
+                        <!--
+                            2. 설치 스크립트
+                            * 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+                        -->
+                        <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+                        <!-- 3. 실행 스크립트 -->
+                        <script charset="UTF-8">
+                            new daum.roughmap.Lander({
+                                "timestamp" : "1620277092523",
+                                "key" : "25nip",
+                                "mapHeight" : "500"
+                            }).render();
+                        </script>
+                    </div>
+                    <div class="btnWrap">
+                        <span>
+                            <a href="http://naver.me/GEAMF1Pp" class="btnTypeNaver" target="_blank">네이버 길찾기</a>
+                        </span>
+                        <span>
+                            <a href="http://kko.to/cjTmUTLDM" class="btnTypeKakao" target="_blank">카카오 길찾기</a>
+                        </span>
+                    </div>
+                    <div class="map-addr">
+                        <div>
+                            <img src="/resource/images/place.png" alt="">
+                            <span>
+                                <small>도로명</small> 충북 청주시 흥덕구 강서로 107 BYC빌딩 4,5층<br>
+                                <small>지번</small> 충북 청주시 흥덕구 강서동 483 BYC빌딩 4,5층
+                            </span>
+                        </div>
+                        <div>
+                            <img src="/resource/images/place.png" alt="">
+                            <span>
+                                <small>주차안내</small> 병원 건물 지하주차장 이용
+                            </span>
+                        </div>
+                    </div>
+                    <div class="cont-box">
+                        <h4 class="cont-label">버스 이용시</h4>
+                        <div class="cont">
+                            <p>
+                                <b class="point-lb">한국자산관리공사(2140) / 53m</b><br>
+                                일반 : 500, 500(단축), 511, 511(단축), 516, 517 / 좌석 502, 502(단축)(조치원역-지하상가)<br>
+                                <br>
+                                <b class="point-lb">하나병원(2106) / 149m</b><br>
+                                일반 50-2, 843 / 좌석 105, 105-1<br>
+                                <br>
+                                <b class="point-lb">시외버스터미널(2055) / 153m</b><br>
+                                일반 005, 014, 20-2, 311, 311-1 / 좌석 105, 105-1, 502 / 급행 747<br>
+                                <br>
+                                <b class="point-lb">고속버스터미널(2109) / 186m</b><br>
+                                일반 003, 20-1, 311, 311-1 / 좌석 502 / 급행 747<br>
+                                <br>
+                                <b class="point-lb">고속 시외버스터미널(2056) / 229m</b><br>
+                                일반 001, 007, 010, 20-1, 311 / 좌석 105, 105-1 / 급행 747<br>
+                                <br>
+                                <b class="point-lb">하나병원 세종병원(2107) / 238m</b><br>
+                                일반 005, 50-1 / 죄석 105, 105-1<br>
+                                <br>
+                                <b class="point-lb">서청주농협(2341) / 246m</b><br>
+                                일반 500, 511, 516 / 좌석 502
+                            </p>
+                        </div>
+                    </div>
+					<div class="cont-box">
+						<h4 class="cont-label">주차안내</h4>
+						<div class="cont">
+							<p>
+								서울탑안과의원을 찾으시는 분들은 본원 건물 지하주차장을 편하게 이용하실 수 있습니다. <b class="point-lb">(주차권 제공)</b>
+							</p>
+							<br>
+							<img class="mb-hide" src="/resource/images/parking.png" alt="" style="margin: 0;">
+							<img class="mb-show" src="/resource/images/m-parking.png" alt="" style="max-width: 100%;">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php include_once "../inc/footer.php" ?>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,287 @@
+<?php
+	include_once $_SERVER["DOCUMENT_ROOT"] . "/_init.php";
+	include_once $GP -> INC_WWW . "/count_inc.php";
+	include_once $GP -> INC_WWW . "/head.php";
+    include_once($GP -> CLS."/class.member.php");
+    $C_Member 	= new Member;
+
+	if(!$_SESSION['suserlevel']) {
+		$check_gubun = '';
+	}else{
+		$check_gubun = $_SESSION['susergubun'];
+	}
+
+    $mb_gubun = $_POST['mb_gubun'];
+	$rs_mb_code = $_POST['mb_code'];
+	$rs_date = $_POST['sel_date'];
+
+	$sel_email = $C_Func->makeSelect('email_sel', $GP -> EMAIL , $email_sel, " class='txtSubEmail' ",'직접선택');
+	$sel_mobile = $C_Func->makeSelect('jb_mobile1', $GP -> MOBILE , $jb_mobile1, " class='wid_phone' ",':::선택:::');
+	$sel_phone = $C_Func->makeSelect('jb_phone1', $GP -> TELEPHONE , $jb_phone1, " class='wid_phone' ",':::선택:::');
+
+
+	$dayweek = $C_Func->DayWeekChange($rs_date);
+
+?>
+
+<style>
+</style>
+
+<body data-dep1="3" data-dep2="1">
+	<div id="wrap">
+		<?php include_once "../inc/header.php" ?>
+		<div id="container">
+			<div id="sub-bnnr">
+				<img src="http://placehold.it/1920x315" alt="">
+				<h2>
+					<small>cheongju phil hospital of korean medicine</small>
+					<span>필 공감센터</span>
+				</h2>
+			</div>
+			<?php include_once "../inc/location.php" ?>
+			<div class="contents">
+				<h3 class="page-tit">진료예약</h3>
+				<div class="inner">
+					<h4 class="dott">예약정보 입력</h4>
+					<form id="frm_online" name="frm_online" method="post" action="?">
+                        <input type="hidden" name="mode" id="mode" value="ONLINE_RESERVE_REG" />
+                        <input type="hidden" name="mb_code" id="mb_code" value="<?=$rs_mb_code?>" />
+                        <input type="hidden" name="time_ck" id="time_ck" value="0" />					
+					<table class="board-write" style="width: 100%;">
+						<colgroup>
+							<col>
+							<col>
+						</colgroup>
+						<tbody>
+							<tr>
+								<th scope="row">
+									예약시간
+								</th>
+								<td>
+								<input type="text" class="i_text" name="rs_date" id="rs_date" value="<?=$rs_date?>" readonly>
+										<select title="시간" name="rs_time" id="rs_time">
+											<option>선택</option>
+											<?
+											if($dayweek == "금" || $dayweek == "토" || $dayweek == "일") {
+                                            ?>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <?
+                                                }else if($dayweek == "월" || $dayweek == "화" || $dayweek == "수" || $dayweek == "목"){
+                                            ?>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <?
+                                                }else{
+                                            ?>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+
+                                            <?
+                                                }
+                                            ?>
+										</select>
+										<span class="empty">시</span>
+										<select title="시간" name="rs_minute" id="rs_minute">
+											<option>선택</option>
+											<option value="00">00</option>
+											<option value="20">20</option>
+											<option value="40">40</option>
+
+										</select>
+										<span class="empty">분</span>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">
+										초진/재진
+									</th>
+									<td class="mobCenter">
+										<label><input type="radio" name="tor_rs_exam" value="N" ><span>초진</span></label>
+										<label><input type="radio" name="tor_rs_exam" value="Y"><span>재진</span></label>
+									</td>
+								</tr>
+								<tr>
+								<th scope="row">성별</th>
+								<td>
+									<label><input type="radio" name="tor_rs_gender" value="M" ><span>남</span></label>
+									<label><input type="radio" name="tor_rs_gender" value="F"><span>여</span></label>
+								</td>
+							</tr>
+								<tr>
+									<th scope="row">생년월일</th>
+									<td><input type="text" class="i_text datepicker" name="tor_rs_birth" id="tor_rs_birth" placeholder="ex)210101"  /></td>
+								</tr>
+								<tr>
+									<th scope="row">이름</th>
+									<td>
+										<input type="text" class="i_text" title="이름 입력" placeholder="이름을 입력하세요." style="width:160px;" id="tor_rs_name" name="tor_rs_name" value="<?=$_SESSION['susername']?>">
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">핸드폰</th>
+									<td>
+										<select name="tor_rs_phone1" id="tor_rs_phone1">
+											<option value="">선택</option>
+											<option value="010">010</option>
+											<option value="011">011</option>
+											<option value="016">016</option>
+											<option value="017">017</option>
+											<option value="018">018</option>
+											<option value="019">019</option>
+										</select>
+										<span class="empty">-</span>
+										<input type="text" class="i_text" id="tor_rs_phone2" name="tor_rs_phone2"  maxlength="4" value="<?=$tor_rs_phone2?>" />
+										<span class="empty">-</span>
+										<input type="text" class="i_text" id="tor_rs_phone3" name="tor_rs_phone3" maxlength="4" value="<?=$tor_rs_phone3?>" />
+									</td>
+								</tr>
+								<tr>
+								<th scope="row">증상 및 상태</th>
+									<td>
+										<textarea name="tor_rs_content" id="tor_rs_content"></textarea>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">자동입력방지</th>
+									<td>
+										<img src="<?=$GP -> IMG_PATH?>/zmSpamFree/zmSpamFree.php?zsfimg=<?php echo time();?>" id="zsfImg" alt="아래 새로고침을 클릭해 주세요.">
+										<input type="text" name="zsfCode" id="zsfCode" class="i_text" title="자동입력방지 숫자 입력" />
+										<a title="새로고침" class="btn btn-gray btn-small" href="#" onClick="document.getElementById('zsfImg').src='<?=$GP -> IMG_PATH?>/zmSpamFree/zmSpamFree.php?re&zsfimg=' + new Date().getTime(); return false;"><span>새로고침</span></a>
+									</td>
+								</tr>
+							</tbody>
+					</table>
+					<div class="btn-group right">
+						<a href="#" id="img_submit" class="btn btn-middle btn-default"><span>예약신청</span></a>
+						<a href="javascript:history.go(-1);" class="btn btn-gray"><span>취소</span></a>
+					</div>
+                    </form>
+					<script type="text/javascript" src="<?=$GP -> JS_SMART_PATH?>/HuskyEZCreator.js" charset="utf-8"></script>
+					 <script type="text/javascript" src="<?=$GP -> JS_PATH?>/jquery.base64.js"></script>
+                     <script type="text/javascript" src="<?=$GP -> JS_PATH?>/jquery.alphanumeric.js"></script>
+					 <script type="text/javascript">
+	$(document).ready(function(){
+
+		$('#rs_minute').change(function(){
+				var date = $('#rs_date').val();
+				var time = $('#rs_time option:selected').val();
+				var minute = $(this).val();
+
+				if(time == '') {
+					alert('시간을 선택하세요');
+					$('#rs_time').focus();
+					return false;
+				}
+
+				var tm = time + ":"+minute;
+
+				$.ajax({
+					type: "POST",
+					url: "./proc/reserve_proc.php",
+					data: "mode=TIME_CNT&date=" + date + "&tm=" + tm,
+					dataType: "text",
+					success: function(msg) {
+
+						if($.trim(msg) == "true") {
+							$('#time_ck').val('1');
+							return false;
+						}else{
+							$('#time_ck').val('0');
+							return false;
+						}
+					},
+					error: function(xhr, status, error) { alert(error); }
+				});
+
+		});
+
+		$('#img_submit').click(function(){
+<?PHP if($check_gubun != ''){ ?>
+			if($('input:radio[name="o_agree"]:checked').val() != "Y" ) {
+			alert("개인정보 처리방침에 동의시에 이용이 가능합니다.");
+			return false;
+		}
+	<? } ?>
+
+		if($('#rs_minute option:selected').val() == '')	{
+				alert('예약시간을 선택하세요');
+				$('#rs_minute').focus();
+				return false;
+			}
+
+
+			if($('#tor_rs_birth').val() == '')	{
+			alert('생년월일을 입력하세요');
+			$('#tor_rs_birth').focus();
+			return false;
+		}
+
+			if($('#tor_rs_name').val() == '')	{
+			alert('이름을 입력하세요');
+			$('#tor_rs_name').focus();
+			return false;
+		}
+
+		if($('#tor_rs_phone1 option:selected').val() == '')	{
+			alert('핸드폰 번호를 입력해주세요');
+			return false;
+		}
+
+		if($('#tor_rs_phone2').val() == '')	{
+			alert('핸드폰 번호를 입력해주세요');
+			$('#tor_rs_phone2').focus();
+			return false;
+		}
+
+		if($('#tor_rs_phone3').val() == '')	{
+			alert('핸드폰 번호를 입력해주세요');
+			$('#tor_rs_phone3').focus();
+			return false;
+		}
+
+
+			if($('#rs_time option:selected').val() == '')	{
+				alert('예약시간을 선택하세요');
+				$('#rs_time').focus();
+				return false;
+			}
+
+			if($('#zsfCode').val() == '')	{
+				alert('자동방지 입력키를 입력하세요');
+				$('#zsfCode').focus();
+				return false;
+			}
+
+
+			$('#frm_online').attr('action','./proc/reserve_proc.php');
+			$('#frm_online').submit();
+			return false;
+
+		});
+
+	});
+					</script>
+				</div>
+			</div>
+		</div>
+		<?php include_once "../inc/footer.php" ?>
+	</div>
+</body>
+
+</html>
