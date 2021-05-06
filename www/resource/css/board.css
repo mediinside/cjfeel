@@ -896,6 +896,20 @@
 		font-size: 28px;
 		line-height: 68px;
 	}
+
+	.search {
+		width: 500px;
+	}
+	.search input {
+		height: 70px;
+		font-size: 28px;
+		border-radius: 35px;
+	}
+	.search button img,
+	.search a img {
+		width: 30px;
+	}
+
 	.tableType-01 td,
 	.tableType-01 th {
 		padding:25px 15px;

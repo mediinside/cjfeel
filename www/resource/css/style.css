@@ -433,6 +433,29 @@ body {
       font-weight: 300;
       letter-spacing: -1.5px; }
 
+.flex-list-04 {
+  display: flex; }
+  .flex-list-04.margin-t {
+    margin-top: 50px; }
+  .flex-list-04 li {
+    width: 33.33%;
+    padding-left: 50px;
+    border-left: 1px solid #ddd; }
+    .flex-list-04 li:first-of-type {
+      padding-left: 0;
+      border: none; }
+    .flex-list-04 li p {
+      margin-bottom: 25px;
+      font-size: 30px;
+      font-weight: bold;
+      letter-spacing: -1.5px; }
+    .flex-list-04 li span {
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1.4;
+      letter-spacing: -2px;
+      word-break: keep-all; }
+
 .z-list.intro02-bg {
   max-width: 1160px;
   margin: 0 auto;
@@ -1062,11 +1085,11 @@ footer {
               color: #333; }
         #info .inner .box.right .table-box {
           margin: 30px 0;
-          padding: 15px 38px;
+          padding: 15px 28px;
           border-top: 1px solid #ddd;
           border-bottom: 1px solid #ddd; }
           #info .inner .box.right .table-box table tbody td:first-of-type {
-            width: 100px; }
+            width: 120px; }
           #info .inner .box.right .table-box table tfoot td {
             color: #aaa; }
 
@@ -1284,6 +1307,43 @@ footer {
       font-weight: 300;
       line-height: 1.6;
       letter-spacing: -2px; }
+
+.intro02 .box:nth-of-type(even) .text {
+  flex-flow: row-reverse; }
+.intro02 .box .text {
+  display: flex;
+  padding: 90px 0; }
+  .intro02 .box .text > div {
+    width: 50%; }
+    .intro02 .box .text > div.right {
+      padding: 0 50px;
+      box-sizing: border-box; }
+    .intro02 .box .text > div h4 {
+      position: relative;
+      width: 100%;
+      font-size: 50px;
+      line-height: 1;
+      letter-spacing: -3.75px;
+      text-align: center; }
+      .intro02 .box .text > div h4 small {
+        position: absolute;
+        bottom: calc(100% + 30px);
+        left: 0;
+        width: 100%;
+        color: #b1b1b1;
+        font-family: sans-serif;
+        font-size: 150px;
+        letter-spacing: -8.25px;
+        text-align: center; }
+    .intro02 .box .text > div p {
+      margin-bottom: 40px;
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 1.4; }
+    .intro02 .box .text > div span {
+      font-size: 20px;
+      font-weight: 300;
+      word-break: keep-all; }
 
 .intro01-box {
   margin-top: 40px;
@@ -1839,6 +1899,43 @@ footer {
         border-color: #F7E600;
         background-color: #F7E600; }
 
+/* 협력기관 */
+#collaboCorp {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap; }
+
+#collaboCorp li {
+  width: calc(100%/5); }
+
+#collaboCorp li > a {
+  display: block;
+  border: 1px solid #ddd;
+  margin: 0 5px 10px; }
+
+#collaboCorp li > a:hover {
+  border: 1px solid #65bb00;
+  outline: 1px solid #65bb00; }
+
+#collaboCorp li > a .logo {
+  display: block;
+  line-height: 112px;
+  padding: 15px;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #f8f8f8; }
+
+#collaboCorp li > a .logo img {
+  max-width: 100%;
+  max-height: 100%; }
+
+#collaboCorp .name {
+  display: block;
+  padding: 22px 0;
+  color: #333;
+  text-align: center; }
+
 /* 오시는길 */
 #map .root_daum_roughmap {
   width: 100%; }
@@ -2054,7 +2151,7 @@ footer {
               width: 50%; }
               header #gnb > ul > li > .sub-menu li a {
                 padding: 25px 0 25px 25px;
-                font-size: 30px;
+                font-size: 20px;
                 text-align: left;
                 border-right: 1px solid #eee;
                 box-sizing: border-box;
@@ -2110,7 +2207,7 @@ footer {
 
   .z-list li {
     flex-flow: column !important;
-    margin-bottom: 60px; }
+    margin-bottom: 60px !important; }
     .z-list li .img {
       width: 100% !important;
       margin-bottom: 30px; }
@@ -2119,12 +2216,18 @@ footer {
     .z-list li .text {
       width: 100% !important;
       padding: 0 !important; }
+      .z-list li .text > p br {
+        display: none; }
       .z-list li .text > small {
         font-size: 20px; }
       .z-list li .text > span {
         font-size: 28px; }
   .z-list.intro02-bg li {
     margin: 60px 0; }
+  .z-list.feel li {
+    margin-bottom: 60px; }
+    .z-list.feel li .text > span br {
+      display: none; }
 
   .flex-list-01 {
     flex-flow: column; }
@@ -2226,7 +2329,7 @@ footer {
         display: none; }
   .flex-list-03.n2 {
     width: 100%;
-    margin: 0; }
+    margin-left: 0; }
     .flex-list-03.n2 > div {
       width: 100%;
       margin: 0; }
@@ -2238,7 +2341,7 @@ footer {
         font-size: 28px; }
   .flex-list-03.n3 {
     width: 100%;
-    margin: 0; }
+    margin-left: 0; }
     .flex-list-03.n3 > div {
       width: 100%;
       margin: 0; }
@@ -2247,6 +2350,18 @@ footer {
       .flex-list-03.n3 > div > p {
         font-size: 30px; }
       .flex-list-03.n3 > div > span {
+        font-size: 28px; }
+
+  .flex-list-04 {
+    flex-flow: column; }
+    .flex-list-04 li {
+      width: 100%;
+      margin-bottom: 50px;
+      padding-left: 0;
+      border-left: none; }
+      .flex-list-04 li p {
+        font-size: 34px; }
+      .flex-list-04 li span {
         font-size: 28px; }
 
   #wrap {
@@ -2259,6 +2374,8 @@ footer {
       width: 100%; }
       header #gnb > ul > li > a {
         font-size: 35px; }
+      header #gnb > ul > li > .sub-menu li a {
+        font-size: 30px; }
     header #header_info {
       position: fixed;
       top: 130px;
@@ -2558,11 +2675,14 @@ footer {
     line-height: 1.4; }
 
   .help-tit {
+    padding: 0 30px;
     font-size: 30px;
-    word-break: keep-all; }
+    word-break: keep-all;
+    box-sizing: border-box; }
     .help-tit br {
       display: none; }
     .help-tit.middot {
+      padding: 0;
       font-size: 28px; }
 
   .page-bnnr {
@@ -2587,14 +2707,38 @@ footer {
     .page-bnnr .right {
       display: none; }
 
-  .intro02-tit small {
-    font-size: 30px; }
-
   .intro01-box {
     padding-left: 80px; }
     .intro01-box p {
       font-size: 28px;
       line-height: 1.4; }
+
+  .intro02-tit small {
+    font-size: 30px; }
+
+  .intro02 .box:nth-of-type(even) .text {
+    flex-flow: column; }
+  .intro02 .box > img {
+    width: 100%; }
+  .intro02 .box .text {
+    padding: 60px 0;
+    flex-flow: column; }
+    .intro02 .box .text > div {
+      width: 100%; }
+      .intro02 .box .text > div.right {
+        margin-top: 60px;
+        padding: 0 30px; }
+      .intro02 .box .text > div h4 small {
+        bottom: 150%;
+        font-size: 100px; }
+      .intro02 .box .text > div p {
+        font-size: 32px;
+        text-align: center; }
+      .intro02 .box .text > div span {
+        display: block;
+        font-size: 28px;
+        line-height: 1.4;
+        text-align: center; }
 
   .doc-box {
     flex-flow: column; }
@@ -2631,6 +2775,8 @@ footer {
         font-size: 36px; }
     .intro04-box > div.top .con ul li {
       font-size: 28px; }
+      .intro04-box > div.top .con ul li span {
+        width: 200px; }
     .intro04-box > div.bottom .con p {
       font-size: 28px; }
 
@@ -2646,6 +2792,100 @@ footer {
   .accordion .item .collapse {
     padding: 25px 60px 25px 60px;
     font-size: 28px;
-    line-height: 1.4; } }
+    line-height: 1.4; }
+
+  .feel3-care .box {
+    flex-flow: column; }
+    .feel3-care .box .left {
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px; }
+      .feel3-care .box .left h5 {
+        margin-top: 15px;
+        margin-left: 0;
+        line-height: 1.4; }
+        .feel3-care .box .left h5 small {
+          font-size: 26px;
+          line-height: 1.4; }
+    .feel3-care .box .right {
+      width: 100%;
+      margin-left: 0;
+      font-size: 28px;
+      text-align: center; }
+
+  .letter-list > li {
+    width: 100%; }
+  .letter-list .tit {
+    font-size: 30px;
+    line-height: 1.4; }
+  .letter-list .cont {
+    font-size: 28px; }
+
+  .experience-list {
+    margin-top: 0; }
+    .experience-list > li {
+      width: 100%; }
+
+  .exp-tit {
+    font-size: 30px;
+    line-height: 1.4; }
+
+  .exp-info dd {
+    font-size: 24px;
+    line-height: 50px; }
+
+  .exp-num {
+    font-size: 20px; }
+
+  .step li {
+    width: 320px; }
+    .step li small {
+      margin-bottom: 15px;
+      font-size: 24px; }
+    .step li h5 {
+      font-size: 28px; }
+    .step li p {
+      font-size: 26px;
+      line-height: 1.4; }
+      .step li p br {
+        display: none; }
+
+  #collaboCorp li {
+    width: calc(100%/2); }
+
+  #collaboCorp li > a .logo img {
+    transform: scale(1.3); }
+
+  #collaboCorp .name {
+    display: none; }
+
+  .map-addr {
+    flex-wrap: wrap; }
+    .map-addr > div {
+      width: 100%; }
+      .map-addr > div:first-of-type {
+        margin-bottom: 50px; }
+      .map-addr > div > img {
+        width: 80px;
+        margin-right: 40px; }
+      .map-addr > div span {
+        font-size: 28px; }
+        .map-addr > div span small {
+          width: 100px;
+          font-size: 28px; }
+
+  .cont-box {
+    flex-wrap: wrap; }
+    .cont-box .cont-label {
+      width: 100%;
+      margin-bottom: 20px;
+      padding-left: 0;
+      font-size: 30px; }
+    .cont-box .cont {
+      width: 100%; }
+      .cont-box .cont > p {
+        font-size: 26px;
+        word-break: keep-all; } }
 
 /*# sourceMappingURL=style.css.map */
